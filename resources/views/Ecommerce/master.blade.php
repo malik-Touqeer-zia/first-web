@@ -11,6 +11,11 @@
 <body>
   
   @include('Ecommerce.header')
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
       @yield('content')
       @include('Ecommerce.footer')
 </body>

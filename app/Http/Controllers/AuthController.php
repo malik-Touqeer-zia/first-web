@@ -30,7 +30,7 @@ class AuthController extends Controller
         $register['password'] = Hash::make($register['password']);
         User::create($register);
 
-        return redirect('/login');
+        return redirect('/login')->with('success', "Register successfully");
     }
 
     // Show Login Form
@@ -46,7 +46,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')->with('success', "Login successfully");
         }
 
         return back()->withErrors([
