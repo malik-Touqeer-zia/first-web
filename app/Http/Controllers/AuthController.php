@@ -58,9 +58,15 @@ class AuthController extends Controller
     public function dashboards() {
         if (Auth::check()) {
            
-            return view("auth.dashbordlogin");
+            return view('Ecommerce.product ');
         } else {
             return redirect()->route('login');
         }
     }
+
+    public function logout() {
+        Auth::logout();           
+            return view('Ecommerce.login');
+       
+        }
 }
